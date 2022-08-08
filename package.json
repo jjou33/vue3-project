@@ -10,13 +10,22 @@
   "dependencies": {
     "vue": "^3.2.37"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.0.0",
-    "prettier": "^2.5.1",
+    "prettier": "^2.7.1",
     "vite": "^3.0.1"
-  }
+  },
+  "browserlist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
