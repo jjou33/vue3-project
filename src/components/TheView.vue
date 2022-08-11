@@ -15,6 +15,10 @@
             ></TheCard>
           </div>
         </div>
+        <hr class="my-4" />
+        <label>
+          <input v-model="username" type="text" />
+        </label>
       </div>
     </main>
   </div>
@@ -72,8 +76,9 @@ export default {
         type: 'news'
       }
     ])
-    const createPost = newTitle => {
-      console.log('createPost', newTitle)
+    const createPost = newPost => {
+      console.log('createPost', newPost)
+      posts.push(newPost)
     }
     return { post, posts, createPost }
   }
