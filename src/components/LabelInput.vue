@@ -1,19 +1,29 @@
 <template>
   <label>
+    {{ label }}
     <input
-      :value="username"
+      :value="modelValue"
       type="text"
-      @input="event => (username = event.target.value)"
+      @input="event => $emit('update:modelValue', event.target.value)"
     />
   </label>
 </template>
 
 <script>
+import { computed } from 'vue'
 export default {
-  props: ['modelValue'],
+  props: ['modelValue', 'label'],
   emits: ['update:modelValue'],
-  setup() {
-    return {}
+  setup(props, { emit }) {
+    const value = computed({
+      get() {
+        return props.modelValue
+      },
+      set(value) {
+        emit('update:modelValue', value)
+      }
+    })
+    return { value }
   }
 }
 </script>

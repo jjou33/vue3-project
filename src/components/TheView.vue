@@ -16,22 +16,33 @@
           </div>
         </div>
         <hr class="my-4" />
-        <label>
-          <input v-model="username" type="text" />
-        </label>
+        <!-- <LabelInput
+          :model-value="userName"
+          @update:model-value="value => (userName = value)"
+        ></LabelInput> -->
+        <LabelInput v-model="userName"></LabelInput>
+        <UserName
+          v-model:firstName="firstName"
+          v-model:lastName="lastName"
+        ></UserName>
       </div>
     </main>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import TheCard from './TheCard.vue'
 import CreateButton from './PostCreate.vue'
+import LabelInput from './LabelInput.vue'
+import UserName from './user-name.vue'
+
 export default {
   components: {
     TheCard,
-    CreateButton
+    CreateButton,
+    LabelInput,
+    UserName
   },
   setup() {
     const post = reactive({
@@ -80,7 +91,8 @@ export default {
       console.log('createPost', newPost)
       posts.push(newPost)
     }
-    return { post, posts, createPost }
+    const userName = ref('')
+    return { post, posts, createPost, userName }
   }
 }
 </script>
